@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .big{font-size:32px}
+    .capR{text-align: right;font: size 24px;font-weight: bold; }
+  </style>
+</head>
+<script type="text/javascript"><!--
+
+  function calcSilver(){calcAdr(0);}
+  function calcMana(){calcAdr(1);}
+  function calcRF(){calcAdr(2);}
+  function calcCO(){calcAdr(3);}
+
+  function calcAdr(idx)
+  {
+    function toV(str)
+    {
+      try{
+        return parseInt(str,16);
+      }catch(e){
+        return 0;
+      }
+    }
+    function toS(v)
+    {
+      try{
+        return v.toString(16).toUpperCase();
+      }catch(e){
+        return 0;
+      }
+    }
+    var ctbl = [0,0x8,0x10,0x60];
+    var tx = "";
+    var sc = document.getElementById("silver");
+    var mc = document.getElementById("mana");
+    var rc = document.getElementById("rf");
+    var cc = document.getElementById("co");
+
+    switch (idx)
+    {
+      case 0:
+        tx = toV(sc.value);
+        mc.value= toS(tx + ctbl[1] - ctbl[0]);
+        rc.value= toS(tx + ctbl[2] - ctbl[0]);
+        cc.value= toS(tx + ctbl[3] - ctbl[0]);
+        break;
+      case 1:
+        tx = toV(mc.value);
+        sc.value= toS(tx + ctbl[0] - ctbl[1]);
+        rc.value= toS(tx + ctbl[2] - ctbl[1]);
+        cc.value= toS(tx + ctbl[3] - ctbl[1]);
+        break;
+      case 2:
+        tx = toV(rc.value);
+        sc.value= toS(tx + ctbl[0] - ctbl[2]);
+        mc.value= toS(tx + ctbl[1] - ctbl[2]);
+        cc.value= toS(tx + ctbl[3] - ctbl[2]);
+        break;
+      case 3:
+        tx = toV(cc.value);
+        sc.value= toS(tx + ctbl[0] - ctbl[3]);
+        mc.value= toS(tx + ctbl[1] - ctbl[3]);
+        rc.value= toS(tx + ctbl[2] - ctbl[3]);
+        break;
+
+    }
+  }
+
+// --></script>
+
+<body>
+  <h1>ガレリア vita</h1>
+  <p>
+  ガレリアの地下迷宮と魔女ノ旅団 <b>vita</b> <br>
+  <b>vitacheat</b>でどれかをサーチしたら、他のアドレスを計算してくれます。
+  </p>
+  <hr>
+    <form name="Adr" id="mainForm">
+    <table id="tbl">
+      <tr id = "tr1">
+        <td class="capR">銀貨</td>
+        <td id="td1"><input type=text value = "82588E10" size=8 maxlength=8 name=silver id="silver" class="big"></td>
+        <td><input type="button" value="calc" class="big" onclick="calcSilver()"></td>
+      </tr>
+      <tr>
+        <td class="capR">マナ</td>
+        <td><input type=text value = "82588E18" size=8 maxlength=8 name=mana id="mana" class="big"></td>
+        <td><input type="button" value="calc" class="big" onclick="calcMana()"></td>
+      </tr>
+      <tr>
+        <td class="capR">リーンフォース</td>
+        <td><input type=text value = "82588E20" size=8 maxlength=8 name=rf id="rf" class="big"></td>
+        <td><input type="button" value="calc" class="big" onclick="calcRF()"></td>
+      </tr>
+      <tr>
+        <td class="capR">キャリーオーバー</td>
+        <td><input type=text value = "82588E70" size=8 maxlength=8 name=co id="co" class="big"></td>
+        <td><input type="button" value="calc" class="big" onclick="calcCO()"></td>
+      </tr>
+    </table>
+  </form>
+  <hr>
+  <a href="../index.html">return</a>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .big{font-size:32px}
+        .capR{text-align: right;font: size 24px;font-weight: bold; }
+    </style>
+    </head>
+    <body>
+        <h1>フォルダ検索</h1>
+        フォルダ名：
+        <FORM METHOD="POST" ACTION="./index.cgi">
+            <INPUT TYPE="TEXT" NAME="folder" VALUE="$TargetName" class = "big">
+            <INPUT TYPE="SUBMIT" VALUE="検索" class = "big">
+        </FORM>
+        <hr>
+        <p class="big">
+            $FolderPath<br>
+        </p>
+
+        <p class="big">
+            <!--$PATH_INFO<br> -->
+            <!--$QUERY_STRING<br> -->
+        </p>
+        <a href="../index.html">return</a>
+        </body>
+</html>
