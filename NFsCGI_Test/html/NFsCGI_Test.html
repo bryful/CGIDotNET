@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .big{font-size:24px}
+    .capR{text-align: right;font-size:14px}
+  </style>
+</head>
+<script type="text/javascript"><!--
+// --></script>
+
+<body>
+  <h1>NFsCGI Test</h1>
+  <p>
+  </p>
+  <hr>
+  <FORM METHOD="GET" ACTION="./index.cgi">
+      <INPUT TYPE="TEXT" NAME="text1" VALUE="" class = "big">
+        <INPUT TYPE="TEXT" NAME="text2" VALUE="" class = "big">
+          <INPUT TYPE="SUBMIT" VALUE="get" class = "big">
+  </FORM>
+  <FORM METHOD="POST" ACTION="./index.cgi">
+    <INPUT TYPE="TEXT" NAME="CCC" VALUE="" class = "big">
+      <INPUT TYPE="TEXT" NAME="DDD" VALUE="" class = "big">
+        <INPUT TYPE="SUBMIT" VALUE="post" class = "big">
+  </FORM>
+  <a href= "./index.cgi?aaa=BBB&fff=kkk" class="big"> send </a>
+ <hr>
+  <p class="big">
+  </p>
+
+  <p class="big">
+    <table border="1">
+      <tr>
+      <td class="big">PATH_INFO :</td class="big"><td  class="big">$PATH_INFO</td>
+      </tr>
+      <tr>
+        <td class="big">QUERY_STRING :</td><td class="big">$QUERY_STRING</td>
+      </tr>
+    </table>
+    $Data<br>
+  </p>
+  <a href="../index.html">return</a>
+  <hr>
+
+</body>
+</html>
