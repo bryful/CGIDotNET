@@ -16,6 +16,7 @@ namespace NFsCGI_Test
 
 			NFsHtml html = new NFsHtml("./NFsCGI_Test.html");
 
+			html.ReplaceTag("$Mode", Cgi.ModeStr);
 			html.ReplaceTag("$PATH_INFO", Cgi.PATH_INFO);
 			html.ReplaceTag("$QUERY_STRING", Cgi.QUERY_STRING);
 			html.ReplaceTag("$Data", Cgi.Data.ToJson());

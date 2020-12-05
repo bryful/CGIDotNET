@@ -141,6 +141,31 @@ namespace NFsCGI
         // **************************************************************
         private MODE m_Mode = MODE.None;
         public MODE Mode{get { return m_Mode; }}
+        public string ModeStr
+		{
+			get
+			{
+                string ret = "";
+                switch(m_Mode)
+				{
+                    case MODE.GET:
+                        ret = "GET";
+                        break;
+                    case MODE.POST:
+                        ret = "POST";
+                        break;
+                    case MODE.ARGS:
+                        ret = "ARGS";
+                        break;
+                    case MODE.None:
+                    default:
+                        ret = "NONE";
+                        break;
+
+                }
+                return ret;
+            }
+		}
         // **************************************************************
         private string m_PATH_INFO = "";
         public string PATH_INFO { get { return m_PATH_INFO; } }

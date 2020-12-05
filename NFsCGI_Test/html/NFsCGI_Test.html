@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -17,23 +17,35 @@
   </p>
   <hr>
   <FORM METHOD="GET" ACTION="./index.cgi">
-      <INPUT TYPE="TEXT" NAME="text1" VALUE="" class = "big">
-        <INPUT TYPE="TEXT" NAME="text2" VALUE="" class = "big">
+      tex1:<INPUT TYPE="TEXT" NAME="text1" VALUE="" class = "big">
+      </input><br>
+        tex2:<INPUT TYPE="TEXT" NAME="text2" VALUE="" class = "big">
+        </input><br>
+      <INPUT TYPE="hidden" NAME="mode" VALUE="GET" class = "big">
+      </input>
           <INPUT TYPE="SUBMIT" VALUE="get" class = "big">
+          </input>
+            <INPUT TYPE="reset" name ="reset" VALUE="reset" class = "big">
+            </input>
   </FORM>
   <FORM METHOD="POST" ACTION="./index.cgi">
-    <INPUT TYPE="TEXT" NAME="CCC" VALUE="" class = "big">
-      <INPUT TYPE="TEXT" NAME="DDD" VALUE="" class = "big">
-        <INPUT TYPE="SUBMIT" VALUE="post" class = "big">
-  </FORM>
-  <a href= "./index.cgi?aaa=BBB&fff=kkk" class="big"> send </a>
- <hr>
+    text3:<INPUT TYPE="TEXT" NAME="text3" VALUE="" class = "big"></input><br>
+      text4:<INPUT TYPE="TEXT" NAME="text4" VALUE="" class = "big"></input><br>
+        <INPUT TYPE="hidden" NAME="mode" VALUE="POST" class = "big"></input>
+          <INPUT TYPE="SUBMIT" VALUE="post" class = "big"></input>
+            <INPUT TYPE="reset" name ="reset" VALUE="reset" class = "big">
+            </FORM>
+          <a href= "./index.cgi?aaa=BBB&fff=kkk&mode=url" class="big"> send </a>
+          <hr>
   <p class="big">
   </p>
 
   <p class="big">
     <table border="1">
       <tr>
+        <td class="big">MODE :</td class="big"><td  class="big">$Mode</td>
+        </tr>
+        <tr>
       <td class="big">PATH_INFO :</td class="big"><td  class="big">$PATH_INFO</td>
       </tr>
       <tr>
