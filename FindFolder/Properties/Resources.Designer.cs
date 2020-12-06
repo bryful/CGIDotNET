@@ -63,24 +63,22 @@ namespace FindFolder.Properties {
         /// <summary>
         ///   &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;ja&quot;&gt;
-        ///	&lt;head&gt;
-        ///	&lt;meta charset=&quot;UTF-8&quot;&gt;
-        ///	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-        ///	&lt;style&gt;
-        ///		.big{font-size:32px}
-        ///		.capR{text-align: right;font: size 24px;font-weight: bold; }
-        ///	&lt;/style&gt;
-        ///	&lt;/head&gt;
-        ///	&lt;body&gt;
-        ///		&lt;h1&gt;フォルダ検索&lt;/h1&gt;
-        ///		フォルダ名：
-        ///		&lt;FORM METHOD=&quot;POST&quot; ACTION=&quot;./index.cgi&quot;&gt;
-        ///			&lt;INPUT TYPE=&quot;TEXT&quot; NAME=&quot;folder&quot; VALUE=&quot;$TargetName&quot; class = &quot;big&quot;&gt;
-        ///			&lt;INPUT TYPE=&quot;SUBMIT&quot; VALUE=&quot;検索&quot; class = &quot;big&quot;&gt;
-        ///		&lt;/FORM&gt;
-        ///		&lt;hr&gt;
-        ///		&lt;p class=&quot;big&quot;&gt;
-        ///			$Fol [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
+        ///    &lt;head&gt;
+        ///    &lt;meta charset=&quot;UTF-8&quot;&gt;
+        ///    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        ///    &lt;style&gt;
+        ///        .big{font-size:32px}
+        ///        .bigs{font-size:32px}
+        ///        .capR{text-align: right;font: size 24px;font-weight: bold; }
+        ///    &lt;/style&gt;
+        ///    &lt;/head&gt;
+        ///    &lt;body&gt;
+        ///        &lt;h1&gt;フォルダ検索&lt;/h1&gt;
+        ///            &lt;tr&gt;
+        ///                &lt;FORM METHOD=&quot;POST&quot; ACTION=&quot;./index.cgi&quot;&gt;
+        ///                    &lt;table&gt;
+        ///                        &lt;tr&gt;
+        ///                  [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string baseHtml {
             get {

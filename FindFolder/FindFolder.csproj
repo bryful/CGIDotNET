@@ -48,8 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CgiUtil.cs" />
+    <Compile Include="..\NFsCGI_Test\NFsCgi.cs">
+      <Link>NFsCgi.cs</Link>
+    </Compile>
+    <Compile Include="..\NFsCGI_Test\NFsHtml.cs">
+      <Link>NFsHtml.cs</Link>
+    </Compile>
     <Compile Include="DynamicJson.cs" />
+    <Compile Include="FindFolder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -71,6 +77,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>cmd /c copy $(TargetPath) "C:\Users\bryfu\Documents\server\findfolder\index.cgi"</PostBuildEvent>
+    <PostBuildEvent>copy $(TargetPath) "C:\Users\bryfu\Documents\server\findfolder\index.cgi"</PostBuildEvent>
   </PropertyGroup>
 </Project>

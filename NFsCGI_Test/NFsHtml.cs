@@ -39,6 +39,7 @@ namespace NFsCGI
 		public string Html
 		{
 			get { return m_Html; }
+			set { m_Html = value; }
 		}
 		private List<List<string>> m_TagTable = new List<List<string>>();
 		public NFsHtml()
@@ -69,6 +70,22 @@ namespace NFsCGI
 			{
 				Init();
 				m_Html = File.ReadAllText(p, Encoding.GetEncoding("utf-8"));
+			}
+			return ret;
+		}
+		// **************************************************************
+		public bool Save(string p)
+		{
+			bool ret = false;
+
+			try
+			{
+				File.WriteAllText(p, m_Html, Encoding.GetEncoding("utf-8"));
+				ret = File.Exists(p);
+			}
+			catch
+			{
+				ret = false;
 			}
 			return ret;
 		}

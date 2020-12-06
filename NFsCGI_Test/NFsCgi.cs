@@ -181,10 +181,30 @@ namespace NFsCGI
         // **************************************************************
         public CgiDataList Data = new CgiDataList();
         // **************************************************************
+        public string GetEnv(string s)
+		{
+            string ret = "";
+            try
+            {
+                ret = System.Environment.GetEnvironmentVariable(s);
+                if (ret == null) ret = "";
+                if(ret!="")
+				{
+                    ret = HttpUtility.UrlDecode(ret);
+                }
+			}
+			catch
+			{
+                ret = "";
+			}
+            return ret;
+
+        }
+        // **************************************************************
         public NFsCgi(string[] args)
         {
-            m_PATH_INFO = HttpUtility.UrlDecode(System.Environment.GetEnvironmentVariable("PATH_INFO"));
-            m_QUERY_STRING = HttpUtility.UrlDecode(Environment.GetEnvironmentVariable("QUERY_STRING"));
+            m_PATH_INFO = GetEnv("PATH_INFO");
+            m_QUERY_STRING = GetEnv("QUERY_STRING");
             m_ARGS = new string[0];
             if (args.Length > 0)
             {
@@ -194,7 +214,7 @@ namespace NFsCGI
                     m_ARGS[i] = HttpUtility.UrlDecode(m_ARGS[i]);
                 }
             }
-            string REQUEST_METHOD = System.Environment.GetEnvironmentVariable("REQUEST_METHOD");
+            string REQUEST_METHOD = GetEnv("REQUEST_METHOD");
             bool IsGET = (REQUEST_METHOD == "GET");
             bool IsPOST = (REQUEST_METHOD == "POST");
             bool IsARGS = (args.Length > 0);
@@ -211,7 +231,7 @@ namespace NFsCGI
             {
                 m_Mode = MODE.POST;
 
-                int CL = int.Parse(System.Environment.GetEnvironmentVariable("CONTENT_LENGTH"));
+                int CL = int.Parse(GetEnv("CONTENT_LENGTH"));
                 if (CL > 0)
                 {
                     Stream inputStream = Console.OpenStandardInput();
@@ -241,7 +261,7 @@ namespace NFsCGI
         {
             Console.OutputEncoding = new UTF8Encoding();
             Console.WriteLine(HtmlHeader);
-            Console.WriteLine("CGI Error!");
+            Console.WriteLine("NFsCGI Error!");
         }
         // **************************************************************
         protected virtual bool IsFileLocked(FileInfo file)
