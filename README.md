@@ -24,15 +24,20 @@ CGIのテストをするためのプロジェクト
 CGIを使って自宅のPCのフォルダを検索するCGI。  
 とりあえず簡単に作ってみたCGI。  
 
+FindFolderDBの機能を内蔵させました。
+
 ### FindFolderDB
 まともにフォルダ検索してたらレスポンスが遅かったので作ったフォルダのDBを作るもの。  
 単純にフォルダのリストをjsonで書き出すWindowsアプリ。
 最終的にはFindFolder.CGIに統合する予定  
+FindFolder.CGIに機能を統合しました。  
 
 
 ## 動作
 
 04WebServerを立ち上げてテストしています。
+ビルドの設定でserverのフォルダへindex.cgiとリネームコピーさせてます。
+
 
 
 
