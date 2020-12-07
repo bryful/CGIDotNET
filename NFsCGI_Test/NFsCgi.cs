@@ -249,6 +249,11 @@ namespace NFsCGI
 
         }
         // **************************************************************
+        ~NFsCgi()
+        {
+            CloseLockFile();
+        }
+        // **************************************************************
         public void WriteHtml(string s)
         {
             Console.OutputEncoding = new UTF8Encoding();
@@ -257,11 +262,12 @@ namespace NFsCGI
 
         }
         // **************************************************************
-        public void WriteErr()
+        public void WriteErr(string s)
         {
             Console.OutputEncoding = new UTF8Encoding();
             Console.WriteLine(HtmlHeader);
-            Console.WriteLine("NFsCGI Error!");
+            Console.WriteLine("NFsCGI Error!<br>");
+            Console.WriteLine(s);
         }
         // **************************************************************
         protected virtual bool IsFileLocked(FileInfo file)
@@ -334,10 +340,17 @@ namespace NFsCGI
             FileInfo fi = new FileInfo(m_lockFile);
 
             int cnt = 0;
+            DateTime now = DateTime.Now;
             while(IsFileLocked(fi))
             {
                 cnt++;
                 Thread.Sleep(100);
+                TimeSpan tm = now - fi.CreationTime;
+				if (tm.TotalSeconds > 10)
+				{
+                    fi.Delete();
+                    break;
+				}
                 if (cnt > 20) return ret;
             }
 

@@ -98,6 +98,8 @@ namespace FindFolder
 					ExportFindFoldersDB();
 				}
 			}
+			m_TargetDir = p;
+
 			return ret;
 		}
 		// ***************************************************************
@@ -225,5 +227,58 @@ namespace FindFolder
 			return ret;
 		}
 		// ***************************************************************
+		public string [] LoadDef(string p)
+		{
+			string [] ret = new string[0];
+
+			if (File.Exists(p) == true)
+			{
+				try
+				{
+					string js = File.ReadAllText(p, Encoding.GetEncoding("utf-8"));
+
+					dynamic obj = DynamicJson.Parse(js);
+
+					DynamicJson dobj = (DynamicJson)obj;
+					if( dobj.IsDefined("TargetDir")==true)
+					{
+						if (dobj.IsArray)
+						{
+							ret = (string[])obj["TargetDir"];
+						}
+						else
+						{
+							ret = new string[1];
+							ret[0] = (string)obj["TargetDir"];
+						}
+					}
+				}
+				catch
+				{
+					ret = new string[0];
+				}
+			}
+			return ret;
+		}
+		// ***************************************************************
+		public bool SaveDef(string p,string [] sa)
+		{
+			bool ret = false;
+
+			try
+			{
+				dynamic obj = new DynamicJson();
+				obj["TargetDir"] = sa;
+
+				string js = ((DynamicJson)obj).ToString();
+				File.WriteAllText(p, js, Encoding.GetEncoding("utf-8"));
+				ret = File.Exists(p);
+			}
+			catch
+			{
+				ret = false;
+			}
+			return ret;
+		}
 	}
 }

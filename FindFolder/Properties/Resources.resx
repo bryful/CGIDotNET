@@ -135,18 +135,22 @@
                 &lt;FORM METHOD="POST" ACTION="./index.cgi"&gt;
                     &lt;table&gt;
                         &lt;tr&gt;
-                            &lt;td&gt;フォルダ名：&lt;/td&gt;
+                            &lt;td&gt;検索するフォルダ名&lt;/td&gt;
+                            &lt;td&gt;対象フォルダ&lt;/td&gt;
                             &lt;td&gt;&lt;a href="./index.cgi?Mode=listup"&gt;DB再構築&lt;/a&gt;&lt;/td&gt;
                         &lt;/tr&gt;
                         &lt;tr&gt;
                         &lt;td&gt;&lt;INPUT TYPE="hidden" NAME="Mode"" VALUE="find"&gt;
                             &lt;INPUT TYPE="TEXT" NAME="TargetName" VALUE="$TargetName" class = "big"&gt;&lt;/td&gt;
+                        &lt;td&gt;&lt;select name=TargetIndex class="bigs"&gt;
+                        	$SelectItems
+                            &lt;/select&gt;&lt;/td&gt;
                         &lt;td&gt;&lt;INPUT TYPE="SUBMIT" VALUE="exec" class="bigs"&gt;&lt;/td&gt;
-                            &lt;/tr&gt;
+
+                        &lt;/tr&gt;
                     &lt;/table&gt;
                 &lt;/FORM&gt;
             &lt;/tr&gt;
-
         &lt;hr&gt;
         &lt;p class="big"&gt;
             $FolderPath&lt;br&gt;
@@ -156,6 +160,7 @@
         &lt;p&gt;
             PATH_INFO = $PATH_INFO&lt;br&gt;
             QUERY_STRING = $QUERY_STRING&lt;br&gt;
+            TargetDir = $TargetDir&lt;br&gt;
             $Data&lt;br&gt;
         &lt;/p&gt;
         &lt;a href="../index.html"&gt;return&lt;/a&gt;
