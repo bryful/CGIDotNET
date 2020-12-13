@@ -163,8 +163,6 @@ namespace FindFolder
 
 			ff.SetTargetDir(TargetPath);
 
-			//html.ReplaceTag("$TargetDir", ff.TargetDir);
-
 			//対象ディレクトリがなかったらエラー TargetDir
 			if (ff.TargetDir=="")
 			{
